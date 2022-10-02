@@ -13,7 +13,7 @@ function getComputerChoice() {
 //Plays one round of RPS
 function playRound(playerSelection, computerSelection) {
   let playerInput = prompt("Please enter 'Rock', 'Paper', or 'Scissors': ");
-  playerSelection = caseCorrection(playerInput); //replaces with correct capitalization
+  playerSelection = caseCorrection(playerInput); //corrects capitalization
   
   console.log("Player chose: " + playerSelection);
   console.log("Computer chose: " + computerSelection);
@@ -57,7 +57,8 @@ function playRound(playerSelection, computerSelection) {
 function game() {
   while (gameRound <= 4) { //for loop -> while loop to use gameRound
     gameRound++;
-    console.log("[Game #" + gameRound + "]" + " Player: " + playerScore + "-" + computerScore + " :Computer");
+    console.log("[Game #" + gameRound + "]" + " Player: " + playerScore +
+    "-" + computerScore + " :Computer");
     computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
   }
@@ -79,10 +80,10 @@ function caseCorrection(playerInput) {
   let firstCapLetter = playerInput.charAt().toUpperCase();
   //console.log(firstCapLetter);
 
-  let restLowerLetter = playerInput.toLowerCase().slice(1, playerInput.length);
-  //console.log(restLowerLetter);
+  let restLowerLetters = playerInput.toLowerCase().slice(1, playerInput.length);
+  //console.log(restLowerLetters);
 
-  return firstCapLetter.concat(restLowerLetter);
+  return firstCapLetter.concat(restLowerLetters);
 }
 
 const playerSelection = "rock";
