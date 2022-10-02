@@ -55,7 +55,7 @@ function playRound(playerSelection, computerSelection) {
 
 //game function with 5 rounds, score keeping, and winner declaration
 function game() {
-  while (gameRound <= 4) {
+  while (gameRound <= 4) { //for loop -> while loop to use gameRound
     gameRound++;
     console.log("[Game #" + gameRound + "]" + " Player: " + playerScore + "-" + computerScore + " :Computer");
     computerSelection = getComputerChoice();
@@ -86,13 +86,8 @@ function caseCorrection(playerInput) {
 }
 
 const playerSelection = "rock";
-//const computerSelection = getComputerChoice();
 
 let gameRound = 0;
 let playerScore = 0;
 let computerScore = 0;
 console.log(game());
-
-
-
-//remember correct commit message phrasing (no past tense)
