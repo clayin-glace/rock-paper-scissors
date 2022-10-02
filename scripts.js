@@ -10,5 +10,28 @@ function getComputerChoice() {
   }
 }
 
+//Plays one round of RPS
+function playRound(playerSelection, computerSelection) {
+  let playerChoice = prompt("Please enter 'Rock', 'Paper', or 'Scissors': ");
+  playerChoice = caseCorrection(playerChoice); //replaces with correct capitalization
+  console.log(playerChoice);
 
-console.log(getComputerChoice());
+}
+
+//converts player input into correct capitalization
+function caseCorrection(playerChoice) {
+  let firstCapLetter = playerChoice.charAt().toUpperCase();
+  console.log(firstCapLetter);
+
+  let restLowerLetter = playerChoice.toLowerCase().slice(1, playerChoice.length);
+
+
+  console.log(restLowerLetter);
+  return firstCapLetter.concat(restLowerLetter);
+}
+
+const playerSelection = "rock";
+const computerSelection = getComputerChoice();
+console.log(playRound([playerSelection, computerSelection]));
+
+//console.log(getComputerChoice());
