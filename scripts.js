@@ -14,37 +14,38 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
   let playerInput = prompt("Please enter 'Rock', 'Paper', or 'Scissors': ");
   playerSelection = caseCorrection(playerInput); //replaces with correct capitalization
+  
   console.log("Player chose: " + playerSelection);
   console.log("Computer chose: " + computerSelection);
 
   if (playerSelection == computerSelection) {
-    return "It's a tie!";
+    return "It's a tie!\nPlayer: " + playerScore + "-" + computerScore + " :Computer";
   } else if (playerSelection == "Rock") {
     switch(computerSelection) {
       case "Paper":
-        return "Paper beats Rock, YOU LOSE!";
-        break;
-      case "Scissor":
-        return "Rock beats Scissor, YOU WIN!"
-        break;
+        computerScore++;
+        return "Paper beats Rock, YOU LOSE!\nPlayer: " + playerScore + "-" + computerScore + " :Computer";
+      case "Scissors":
+        playerScore++;
+        return "Rock beats Scissor, YOU WIN!\nPlayer: " + playerScore + "-" + computerScore + " :Computer";
     }
   } else if (playerSelection == "Paper") {
     switch(computerSelection) {
       case "Scissors":
-        return "Scissors beats Paper, YOU LOSE!";
-        break;
+        computerScore++;
+        return "Scissors beats Paper, YOU LOSE!\nPlayer: " + playerScore + "-" + computerScore + " :Computer";
       case "Rock":
-        return "Paper beats Rock, YOU WIN!"
-        break;
+        playerScore++;
+        return "Paper beats Rock, YOU WIN!\nPlayer: " + playerScore + "-" + computerScore + " :Computer";
     }
   } else if (playerSelection == "Scissors") {
     switch(computerSelection) {
       case "Rock":
-        return "Rock beats Scissors, YOU LOSE!";
-        break;
+        computerScore++;
+        return "Rock beats Scissors, YOU LOSE!\nPlayer: " + playerScore + "-" + computerScore + " :Computer";
       case "Paper":
-        return "Scissors beats Paper, YOU WIN!"
-        break;
+        playerScore;
+        return "Scissors beats Paper, YOU WIN!\nPlayer: " + playerScore + "-" + computerScore + " :Computer";
     }
   } else {
     return "Input unrecognized, please try again!";
@@ -53,10 +54,9 @@ function playRound(playerSelection, computerSelection) {
 
 //game function with 5 rounds, score keeping, and winner declaration
 function game() {
-  let playerScore = 0;
-  let computerScore = 0;
   for (let i = 0; i < 5; i++) {
-    playRound();
+    computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
   }
 }
 
@@ -73,8 +73,11 @@ function caseCorrection(playerInput) {
 }
 
 const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+//const computerSelection = getComputerChoice();
+
+let playerScore = 0;
+let computerScore = 0;
+console.log(game());
 
 
 
