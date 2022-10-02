@@ -16,6 +16,36 @@ function playRound(playerSelection, computerSelection) {
   playerSelection = caseCorrection(playerInput); //replaces with correct capitalization
   console.log(playerSelection);
 
+  if (playerSelection == computerSelection) {
+    return "It's a tie!";
+  } else if (playerSelection == "Rock") {
+    switch(computerSelection) {
+      case "Paper":
+        return "Paper beats Rock, YOU LOSE!";
+        break;
+      case "Scissor":
+        return "Rock beats Scissor, YOU WIN!"
+        break;
+    }
+  } else if (playerSelection == "Paper") {
+    switch(computerSelection) {
+      case "Scissors":
+        return "Scissors beats Paper, YOU LOSE!";
+        break;
+      case "Rock":
+        return "Paper beats Rock, YOU WIN!"
+        break;
+    }
+  } else if (playerSelection == "Scissors") {
+    switch(computerSelection) {
+      case "Rock":
+        return "Rock beats Scissors, YOU LOSE!";
+        break;
+      case "Paper":
+        return "Scissors beats Paper, YOU WIN!"
+        break;
+    }
+  }
 }
 
 //converts player input into correct capitalization
@@ -32,6 +62,6 @@ function caseCorrection(playerInput) {
 
 const playerSelection = "rock";
 const computerSelection = getComputerChoice();
-console.log(playRound([playerSelection, computerSelection]));
+console.log(playRound(playerSelection, computerSelection));
 
-console.log(getComputerChoice());
+
