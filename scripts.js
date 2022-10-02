@@ -65,3 +65,5 @@ const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
 
 
+
+//remember correct commit message phrasing (no past tense)
