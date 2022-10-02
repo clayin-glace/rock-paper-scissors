@@ -14,7 +14,8 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
   let playerInput = prompt("Please enter 'Rock', 'Paper', or 'Scissors': ");
   playerSelection = caseCorrection(playerInput); //replaces with correct capitalization
-  console.log(playerSelection);
+  console.log("Player chose: " + playerSelection);
+  console.log("Computer chose: " + computerSelection);
 
   if (playerSelection == computerSelection) {
     return "It's a tie!";
@@ -45,18 +46,19 @@ function playRound(playerSelection, computerSelection) {
         return "Scissors beats Paper, YOU WIN!"
         break;
     }
+  } else {
+    return "Input unrecognized, please try again!";
   }
 }
 
 //converts player input into correct capitalization
 function caseCorrection(playerInput) {
   let firstCapLetter = playerInput.charAt().toUpperCase();
-  console.log(firstCapLetter);
+  //console.log(firstCapLetter);
 
   let restLowerLetter = playerInput.toLowerCase().slice(1, playerInput.length);
+  //console.log(restLowerLetter);
 
-
-  console.log(restLowerLetter);
   return firstCapLetter.concat(restLowerLetter);
 }
 
