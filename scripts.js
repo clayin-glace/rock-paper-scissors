@@ -51,6 +51,16 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+//game function with 5 rounds, score keeping, and winner declaration
+function game() {
+  let playerScore = 0;
+  let computerScore = 0;
+  for (let i = 0; i < 5; i++) {
+    playRound();
+  }
+}
+
+
 //converts player input into correct capitalization
 function caseCorrection(playerInput) {
   let firstCapLetter = playerInput.charAt().toUpperCase();
