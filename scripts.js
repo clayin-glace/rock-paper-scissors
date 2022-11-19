@@ -12,11 +12,11 @@ function getComputerChoice() {
 
 //Plays one round of RPS
 function playRound(playerSelection, computerSelection) {
-  let playerInput = prompt("Please enter 'Rock', 'Paper', or 'Scissors': ");
-  playerSelection = caseCorrection(playerInput); //corrects capitalization
+  //let playerInput = prompt("Please enter 'Rock', 'Paper', or 'Scissors': ");
+  //playerSelection = caseCorrection(playerInput); //corrects capitalization
   
-  console.log("Player chose: " + playerSelection);
-  console.log("Computer chose: " + computerSelection);
+  div.textContent = "Player chose: " + playerSelection;
+  div.textContent = "Computer chose: " + computerSelection;
 
   if (playerSelection == computerSelection) {
     return "It's a tie!";
@@ -54,6 +54,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 //game function with 5 rounds, score keeping, and winner declaration
+/*
 function game() {
   while (gameRound <= 4) { //for loop -> while loop to use gameRound
     gameRound++;
@@ -61,8 +62,8 @@ function game() {
     "-" + computerScore + " :Computer");
     computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
-  }
-  
+  } 
+
   console.log("Player: " + playerScore + "-" + computerScore + " :Computer"); 
 
   if (playerScore > computerScore) {
@@ -73,7 +74,7 @@ function game() {
     return "NOBODY WINS?";
   }
 }
-
+*/
 
 //converts player input into correct capitalization
 function caseCorrection(playerInput) {
@@ -88,7 +89,26 @@ function caseCorrection(playerInput) {
 
 const playerSelection = "rock";
 
+const rock = document.getElementById("rock");
+const paper = document.getElementById("paper");
+const scissors = document.getElementById("scissors");
+const div = document.querySelector("div");
+
+rock.addEventListener("click", e => {
+  console.log(e.target);
+  playRound("Rock", getComputerChoice())
+});
+
+paper.addEventListener("click", e => {
+  console.log(e.target);
+  playRound("Paper", getComputerChoice())
+});
+
+scissors.addEventListener("click", e => {
+  console.log(e.target);
+  playRound("Scissors", getComputerChoice())
+});
+
 let gameRound = 0;
 let playerScore = 0;
 let computerScore = 0;
-console.log(game());
