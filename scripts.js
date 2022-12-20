@@ -15,42 +15,56 @@ function playRound(playerSelection, computerSelection) {
   //let playerInput = prompt("Please enter 'Rock', 'Paper', or 'Scissors': ");
   //playerSelection = caseCorrection(playerInput); //corrects capitalization
   
-  div.textContent = "Player chose: " + playerSelection;
-  div.textContent = "Computer chose: " + computerSelection;
+  
+  player.textContent = "Player chose: " + playerSelection;
+  computer.textContent = "Computer chose: " + computerSelection;
+
+  console.log("Player: " + playerSelection);
+  console.log("Computer: " + computerSelection);
 
   if (playerSelection == computerSelection) {
-    return "It's a tie!";
+    ruling.textContent = "It's a tie!";
   } else if (playerSelection == "Rock") {
     switch(computerSelection) {
       case "Paper":
         computerScore++;
-        return "Paper beats Rock, YOU LOSE!";
+        ruling.textContent = "Paper beats Rock, YOU LOSE!";
+        break;
       case "Scissors":
         playerScore++;
-        return "Rock beats Scissors, YOU WIN!";
+        ruling.textContent = "Rock beats Scissors, YOU WIN!";
+        break;
     }
   } else if (playerSelection == "Paper") {
     switch(computerSelection) {
       case "Scissors":
         computerScore++;
-        return "Scissors beats Paper, YOU LOSE!";
+        ruling.textContent = "Scissors beats Paper, YOU LOSE!";
+        break;
       case "Rock":
         playerScore++;
-        return "Paper beats Rock, YOU WIN!";
+        ruling.textContent = "Paper beats Rock, YOU WIN!";
+        break;
     }
   } else if (playerSelection == "Scissors") {
     switch(computerSelection) {
       case "Rock":
         computerScore++;
-        return "Rock beats Scissors, YOU LOSE!";
+        ruling.textContent = "Rock beats Scissors, YOU LOSE!";
+        break;
       case "Paper":
-        playerScore;
-        return "Scissors beats Paper, YOU WIN!";
+        playerScore++;
+        ruling.textContent = "Scissors beats Paper, YOU WIN!";
+        break;
     }
   } else {
     gameRound--; //doesn't count as a game round
     return "Input unrecognized, please try again!";
   }
+
+  scoreboard.textContent = "[Game #" + gameRound + "]" + " Player: " + playerScore +
+  "-" + computerScore + " :Computer";
+
 }
 
 //game function with 5 rounds, score keeping, and winner declaration
@@ -77,6 +91,7 @@ function game() {
 */
 
 //converts player input into correct capitalization
+/*
 function caseCorrection(playerInput) {
   let firstCapLetter = playerInput.charAt().toUpperCase();
   //console.log(firstCapLetter);
@@ -86,28 +101,36 @@ function caseCorrection(playerInput) {
 
   return firstCapLetter.concat(restLowerLetters);
 }
+*/
 
-const playerSelection = "rock";
+var playerSelection = "rock";
 
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
-const div = document.querySelector("div");
+var player = document.getElementById("player-choice");
+var computer = document.getElementById("computer-choice");
+var scoreboard = document.getElementById("scoreboard");
+var ruling = document.getElementById("ruling");
 
 rock.addEventListener("click", e => {
   console.log(e.target);
+  gameRound++;
   playRound("Rock", getComputerChoice())
 });
 
 paper.addEventListener("click", e => {
   console.log(e.target);
+  gameRound++;
   playRound("Paper", getComputerChoice())
 });
 
 scissors.addEventListener("click", e => {
   console.log(e.target);
+  gameRound++;
   playRound("Scissors", getComputerChoice())
 });
+
 
 let gameRound = 0;
 let playerScore = 0;
